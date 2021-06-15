@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rough Diamond</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+</head>
+<body>
+
+  <div>
+  	   </div>
+
+		<nav role="navigation">
+		  <div id="menuToggle">
+		    <input type="checkbox" />
+		    
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		    
+		    <ul id="menu">
+		      <a href="#"><img class="imagenMenu" src="css/Imgs/instagram.png"><li>Instagram</li></a>
+		      <a href="contato.html"><img class="imagenMenu" src="css/Imgs/Email.png"><li>crystal_vieira@hotmail.com</li></a>
+		    </ul>
+		  </div>
+		</nav>
+  	   
+      <div class="div2"> 
+        <div id="menu5">
+        
+        <a href="index.html">&nbsp;HOME&nbsp;</a>  
+        <a href="Trabalhos.html">&nbsp;TRABALHOS&nbsp;</a> 
+        <a href="contato.html">&nbsp;CONTATO&nbsp;</a> 
+
+       </div>
+       
+		<div id="slideshow">
+		  <div class="slide-wrapper">
+		    <div class="slide"><h1 class="slide-number"></h1></div>
+		    <div class="slide"><h1 class="slide-number"></h1></div>
+		    <div class="slide"><h1 class="slide-number"></h1></div>
+		  </div>
+		</div>
+
+      <div class="div3">
+        <h1 class="h1">Sobre</h1>
+        <img class="imagen2" src="css/Imgs/imagenCrys2.png">
+        <p class="p">
+         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+        </p>
+        <div><h2 class="h2">Todos os Direitos Reservados.</h2></div>
+      </div>
+  </div>
+
+	<script>
+var elements = ".s1, .s2, .s3"
+var images = ".image1, .image2, .image3"
+function myFn() {
+  if ($('.s1').hasClass('active')) {
+    $(elements).removeClass("active");
+      $(".s2").addClass("active");  
+        $(".image1").animate({left: '-110vw'});
+    $(".image2, .image3").animate({left: '0vw'});
+    } else if ($('.s2').hasClass('active')) {
+        $(elements).removeClass("active");
+      $(".s3").addClass("active");
+    $(".image1, .image2").animate({left: '-110vw'});
+    $(".image3").css("left", "0px");
+    } else {
+      $(elements).removeClass("active");
+      $(".s1").addClass( "active" );
+      $(images).animate({left: '0vw', opacity: 1});
+    }
+}
+//This sets slider time to 4sec. You can increase/decrease as you wish
+myTimer = setInterval(myFn, 4000);
+
+$(document).ready(function(){
+  //Primeiro um RESET
+  $(images).css({left: '0vw', opacity: 1});
+
+  //DA FOCO AO PRIMEIRO SLIDE
+    $(".s1").click(function(){
+    clearInterval(myTimer);
+    myTimer = setInterval(myFn, 4000);
+    $(elements).removeClass("active");
+      $(".s1").addClass( "active" );
+      $(images).animate({left: '0vw', opacity: 1});
+    });
+
+  // DA FOCO AO SEGUNDO SLIDE
+  $(".s2").click(function(){
+    clearInterval(myTimer);
+    myTimer = setInterval(myFn, 4000);
+    $(elements).removeClass("active");
+      $(".s2").addClass("active");  
+        $(".image1").animate({left: '-110vw'});
+    $(".image2, .image3").animate({left: '0vw'});
+    });
+
+  //DA FOCO AO TERCEIRO SLIDE
+  $(".s3").click(function(){
+    clearInterval(myTimer);
+    myTimer = setInterval(myFn, 4000);
+    $(elements).removeClass("active");
+      $(".s3").addClass("active");
+    $(".image1, .image2").animate({left: '-110vw'});
+    $(".image3").css("left", "0px");
+ });
+});
+	</script>
+
+</body>
+</html>
